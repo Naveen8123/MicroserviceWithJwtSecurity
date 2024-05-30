@@ -48,7 +48,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>service-registry</finalName>
+		<finalName>service_registry</finalName>
 	</build>
 
 </project>
