@@ -3,5 +3,5 @@ eureka:
     register-with-eureka: false
     fetch-registery: false
 
-server:
-  port: 8761
+#server:
+  #port: 8761
