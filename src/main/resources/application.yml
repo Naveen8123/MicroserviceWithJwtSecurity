@@ -1,7 +1,30 @@
-eureka:
-  client:
-    register-with-eureka: false
-    fetch-registery: false
+#eureka:
+  #client:
+   # register-with-eureka: false
+    #fetch-registery: false
 
 #server:
   #port: 8761
+version: '3'
+services:
+  eureka-server:
+    image: service_registry
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - eureka-network
+
+  service-registry:
+    image: service_registry
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    networks:
+      - eureka-network
+
+networks:
+  eureka-network:
+    driver: bridge
+
